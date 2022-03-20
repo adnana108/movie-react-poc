@@ -13,17 +13,11 @@ class WatchList extends React.Component{
     }
 
       removeFromList(movie){
-        console.log("Removing " + movie.title + " from watchlist");
         let newList=this.state.testList;
         let newListT = newList.filter((item)=>item.id !== movie.id);
-        console.log("Setting new state");
-        console.log(newListT);
         this.setState({testList:newListT});
         movie.isInWatchlist=false;
-        console.log(">>>");
-        console.log("Removed " + movie.title + " from watchlist");
-        console.log(this.state.testList);
-      }
+    }
 
     render(){
         return(
