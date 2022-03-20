@@ -21,21 +21,13 @@ addToWatchList(movie){
   newList.push(movie);
   movie.isInWatchlist=true;
   this.setState({watchlist:newList});
-  console.log(this.state.watchlist);
 }
+
 removeFromList(movie){
-  console.log("Removing " + movie.title + " from watchlist");
-  // console.log(this.state.watchlist);
   let newList=this.state.watchlist;
-  // newList.filter((item)=>item.id !== movie.id);
   let newListT = newList.filter((item)=>item.id !== movie.id);
-  console.log("Setting new state");
-  console.log(newListT);
   this.setState({watchlist:newListT});
   movie.isInWatchlist=false;
-  console.log(">>>");
-  console.log("Removed " + movie.title + " from watchlist");
-  // console.log(this.state.watchlist);
 }
 
 render(){
