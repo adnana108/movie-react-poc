@@ -30,16 +30,13 @@ export default class SearchBar extends React.Component{
         this.setState({
           searchValue:value
         })
-        console.log(value)
       }
 
     onClickHandler(){
         let value = document.getElementById("editText").value
-        console.log(value)
         this.state.searchValue === "movies" ?
         SearchMovies(value).then(res=>{
             this.setState({movies:res.data.results})
-            console.log(res.data.results)
         })
         : SearchMoviesBasedOnActors(value).then((res)=>{
             let results = res.data.results;
@@ -50,7 +47,6 @@ export default class SearchBar extends React.Component{
                 }
             }
             this.setState({movies:resultList})
-            console.log(resultList)
         })
     }
     render(){
@@ -167,55 +163,3 @@ export const MovieList = (props) =>{
         </div>
     )
 }
-
-// export default function SearchBar() {
-//     const [value, setValue] = useState(" ");
-//     const [searchMode, setSearchMode] = useState ("movies")
-
-   
-//   return (
-//       <div>
-//         <TextField
-//         label= "Search Movie"
-//         value={value}
-//         onChange={(e) => {
-//           setValue(e.target.value)
-//           console.log("test corina", e.target.value)
-//         }}
-//        >
-//        </TextField>
-//        <Button
-//        onClick={
-//            SearchMovies(value)
-//            .then(res=>{
-//                console.log(res)
-//            })
-//         }
-//        >Search</Button>
-
-//        <FormControl >
-//             <RadioGroup
-//                 value = {searchMode}
-//                 onClick={(e) => {
-//                     setSearchMode(e.target.value);
-//                     console.log(e.target.value)
-//                 }}
-//                 row
-//                 aria-labelledby="demo-controlled-radio-buttons-group"
-//                 name="controlled-radio-buttons-group"
-//             > 
-//                 <FormControlLabel 
-//                 value="movies"
-//                 control={<Radio color="secondary"/>} 
-//                 label={<Typography color="primary">Movies</Typography>} />
-//                 <FormControlLabel 
-//                 value="actors" 
-//                 control={<Radio color="secondary"/>} 
-//                 label={<Typography color="primary">Actors</Typography>} />
-                    
-//             </RadioGroup>
-//         </FormControl>
-//       </div>
-       
-//   )
-// }
